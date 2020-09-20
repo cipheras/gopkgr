@@ -49,6 +49,7 @@ func main() {
 			ss = append(ss, string(c))
 		}
 		fmt.Fprintf(f, "%v,", replacer.Replace(fmt.Sprint(ss)))
+		fmt.Printf("\u001b[1000D :Packing[%v/%v] [%v%v]", i+1, len(bytstr), strings.Repeat("#", i+1), strings.Repeat(".", len(bytstr)-i-1))
 	}
 	fmt.Fprintln(f, "}")                //close byt
 	fmt.Fprintln(f, "return pth, file") //return all paths
