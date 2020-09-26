@@ -1,7 +1,7 @@
 # GoPkgr &nbsp; ![GitHub release (latest by date)](https://img.shields.io/github/v/release/cipheras/gopkgr?style=flat-square&logo=superuser)
 #### A packager module/tool to pack templates/static files with the binary and extract it at the runtime.  
 
-![Lines of code ](https://img.shields.io/tokei/lines/github/cipheras/gopkgr?style=flat-square&logo=superuser)
+![Lines of code ](https://img.shields.io/tokei/lines/github/cipheras/gopkgr?style=flat-square)
 &nbsp;&nbsp;&nbsp;&nbsp;![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/cipheras/gopkgr?style=flat-square)
 &nbsp;&nbsp;&nbsp;&nbsp;![GitHub All Releases](https://img.shields.io/github/downloads/cipheras/gopkgr/total?style=flat-square)
 &nbsp;&nbsp;&nbsp;&nbsp;![Platform](https://img.shields.io/badge/dynamic/json?url=https://jsonkeeper.com/b/L6FD&label=platform&query=platform&style=flat-square&labelColor=grey&color=darkgreen&cacheSeconds=3600)
@@ -34,12 +34,6 @@ Running **gopkgr** will generate a **GO** file which will contain data from all 
 Put the *binary in the same dir* in which the files which are to be packed are located and execute it.
 <br>It will automatically pack all files and files that are in folders too.
 
-
-
-
-
-
-
 Now you can use this file with your **GO** project and use **unpacker** function to unpack it at runtime.
 <br>You can give path to where it should be extracted at the runtime. 
 <br>Finally build your project.
@@ -51,7 +45,7 @@ Now you can use this file with your **GO** project and use **unpacker** function
 - [ ] Build this generated **GO** file to binary automatically
 
 ## License
-**gopkgr** is made by **@cipheras** and is released under &nbsp;![GitHub License](https://img.shields.io/github/license/cipheras/gopkgr)
+**gopkgr** is made by **@cipheras** and is released under the terms of the &nbsp;![GitHub License](https://img.shields.io/github/license/cipheras/gopkgr)
 
 ## Contact &nbsp; [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fcipheras%2Fgopkgr&label=Tweet)](https://twitter.com/intent/tweet?text=Hi:&url=https%3A%2F%2Fgithub.com%2Fcipheras%2Fgopkgr)
 > Feel free to submit a bug, add features or issue a pull request.
