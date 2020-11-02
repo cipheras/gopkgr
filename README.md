@@ -38,14 +38,8 @@ Now you can use this file with your **GO** project and use **unpacker** function
 <br>You can give path to where it should be extracted at the runtime. 
 <br>Finally build your project.
 
-
-## To Do
-- [x] Generate a **GO** file with packaged data of static files
-- [ ] Include **unpacker** in the **GO** file generated 
-- [ ] Build this generated **GO** file to binary automatically
-
 ## License
-**gopkgr** is made by **@cipheras** and is released under the terms of the &nbsp;![GitHub License](https://img.shields.io/github/license/cipheras/gopkgr)
+**gopkgr** is made by **@cipheras** and is released under the terms of the &nbsp;![GitHub License](https://img.shields.io/github/license/cipheras/gopkgr?color=darkgreen)
 
 ## Contact &nbsp; [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fcipheras%2Fgopkgr&label=Tweet)](https://twitter.com/intent/tweet?text=Hi:&url=https%3A%2F%2Fgithub.com%2Fcipheras%2Fgopkgr)
 > Feel free to submit a bug, add features or issue a pull request.
