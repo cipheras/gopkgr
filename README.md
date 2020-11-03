@@ -32,13 +32,13 @@ Running **gopkgr** will generate a **GO** file which will contain data from all 
 
 ### Using precompiled binary
 Put the *binary in the same dir* in which the files which are to be packed are located and execute it.
-<br>It will automatically pack all files and files that are in folders too.
+<br>It will automatically pack all files and files that are in folders and subfolders too.
 
 Now you can use this file with your **GO** project and use **unpacker** function to unpack it at runtime.
 <br>You can give path to where it should be extracted at the runtime. 
 <br>Finally build your project.
 
-Packing Example:
+**gopkgr in action:**
 ![example](../assets/example.gif?raw=true)
 
 ## License
