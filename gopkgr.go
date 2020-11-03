@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"syscall"
 )
@@ -16,10 +17,13 @@ func main() {
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 	go func() {
 		<-c
-		fmt.Println("\n[+] Exiting...")
+		fmt.Println("\nExiting...")
 		os.Exit(0)
 	}()
+	Cwindows()
 	pkr()
+	fmt.Printf("\n\nPress any key to exit...")
+	fmt.Scanf("enter")
 }
 
 func pkr() {
@@ -31,18 +35,19 @@ func pkr() {
 	var bytstr []string
 	// fmt.Fprintln(f, "func pkg() ([]string, [][]byte) {") //main function start
 	fmt.Fprintf(f, "pth := []string{") //open pth
-	count := 0
+	// count := 0
 	ignore := map[string]bool{
-		"pkg.go":     true,
-		"go.mod":     true,
-		"LICENSE":    true,
-		"README.md":  true,
-		"gopkgr.go":  true,
-		"gopkgr":     true,
-		"gopkgr.exe": true,
+		"pkg.go":         true,
+		"go.mod":         true,
+		"LICENSE":        true,
+		"README.md":      true,
+		"gopkgrWin.go":   true,
+		"gopkgrLinux.go": true,
+		os.Args[0]:       true,
 	}
 	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
-		if info.Mode().IsRegular() && !ignore[info.Name()] {
+		exe, _ := regexp.MatchString("^(.*\\.exe)$", info.Name())
+		if info.Mode().IsRegular() && !ignore[info.Name()] && !exe {
 			filebyt, err := ioutil.ReadFile(path)
 			if err != nil {
 				log.Println(err)
@@ -51,7 +56,7 @@ func pkr() {
 			fmt.Fprintf(f, "\"%v\",", path)
 			replacer := strings.NewReplacer("[", "{", "]", "}", " ", ",")
 			bytstr = append(bytstr, replacer.Replace(fmt.Sprint(filebyt)))
-			count++
+			// count++
 		}
 		return nil
 	})
@@ -75,7 +80,7 @@ func pkr() {
 	fmt.Fprintln(f, "}")                //close byt
 	fmt.Fprintln(f, "return pth, file") //return all paths
 	fmt.Fprintln(f, "}")                //end main
-	fmt.Println("\nFiles Packed:", count)
+	// fmt.Println("\nFiles Packed:", count)
 	fmt.Fprintln(f, u)
 	f.Close()
 }
@@ -113,4 +118,4 @@ func unpkr() {
 		fmt.Printf("\033[1000D \033[48;5;22m:Unpacking [%v/%v]\033[0m [%v%v]", i+1, len(pth), strings.Repeat("#", i+1), strings.Repeat(".", len(pth)-i-1))
 	}
 }
-	`
+`

@@ -1,3 +1,8 @@
+
+- Filtering of exe files and self
+- Process in new console
+- Undo changes in the system that are made for coloring
+
 v1.4.0
 - Unpacker function is included in the pkg.go file
 - Progress bar enhanced
