@@ -1,0 +1,8 @@
+v1.4.0
+- Unpacker function is included in the pkg.go file
+- Progress bar enhanced
+- Capturing of Ctrl+C to stop packing 
+
+v1.3.0
+- Filtering of packing of unwanted files
+- Progress bar has been added

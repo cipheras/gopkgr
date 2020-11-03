@@ -16,7 +16,7 @@ Or you can either use a **precompiled binary** package for your architecture or 
 ### Download precompiled binary
 Windows | Linux
 --------|-------
-[win-x64](https://github.com/cipheras/gopkgr/releases/download/v1.3.0/gopkgr_windows.exe) | [linux-x64](https://github.com/cipheras/gopkgr/releases/download/v1.3.0/gopkgr_linux)
+[win-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.0/gopkgr-win-1.4.exe) | [linux-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.0/gopkgr-linux-1.4)
 
 For other versions or releases go to [release page](https://github.com/cipheras/gopkgr/releases).
 
@@ -28,7 +28,7 @@ go build
 ```
 ## Usage
 Running **gopkgr** will generate a **GO** file which will contain data from all packed files.
-<br>*Note: This file can become big if there are too many static files. Also more **RAM** is needed to pack many files.*
+<br>***Note**: This file can become big if there are too many static files. Don't include images.
 
 ### Using precompiled binary
 Put the *binary in the same dir* in which the files which are to be packed are located and execute it.
@@ -37,6 +37,9 @@ Put the *binary in the same dir* in which the files which are to be packed are l
 Now you can use this file with your **GO** project and use **unpacker** function to unpack it at runtime.
 <br>You can give path to where it should be extracted at the runtime. 
 <br>Finally build your project.
+
+Packing Example:
+![example](../assets/example.gif?raw=true)
 
 ## License
 **gopkgr** is made by **@cipheras** and is released under the terms of the &nbsp;![GitHub License](https://img.shields.io/github/license/cipheras/gopkgr?color=darkgreen)
