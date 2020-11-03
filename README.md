@@ -11,7 +11,7 @@ You can import this as a module and start using it.
 ```
 go get github.com/cipheras/gopkgr
 ```
-Or you can either use a **precompiled binary** package for your architecture or you can compile **gopkgr** from source.
+Or you can either use a **precompiled binary** package for your architecture or you can compile **gopkgr** from the source.
 
 ### Download precompiled binary
 Windows | Linux
@@ -28,7 +28,7 @@ go build
 ```
 ## Usage
 Running **gopkgr** will generate a **GO** file which will contain data from all packed files.
-<br>***Note**: This file can become big if there are too many static files. Don't include images.
+<br>***Note**: This file can become big if there are too many static files. Don't include images.*
 
 ### Using precompiled binary
 Put the *binary in the same dir* in which the files which are to be packed are located and execute it.
