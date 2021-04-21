@@ -3,13 +3,15 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"os/signal"
 	"path/filepath"
 	"regexp"
 	"strings"
 	"syscall"
+	"time"
+
+	. "github.com/cipheras/gohelper"
 )
 
 func main() {
@@ -20,6 +22,7 @@ func main() {
 		fmt.Println("\nExiting...")
 		os.Exit(0)
 	}()
+	Flog()
 	Cwindows()
 	pkr()
 	fmt.Printf("\n\nPress any key to exit...")
@@ -28,30 +31,27 @@ func main() {
 
 func pkr() {
 	f, err := os.OpenFile("pkg.go", os.O_CREATE|os.O_RDWR|os.O_TRUNC, 0644)
-	if err != nil {
-		log.Fatalln(err)
-	}
+	Try(err, true, "Creating \"pkg.go\" file")
 	fmt.Fprintln(f, p)
 	var bytstr []string
-	// fmt.Fprintln(f, "func pkg() ([]string, [][]byte) {") //main function start
 	fmt.Fprintf(f, "pth := []string{") //open pth
-	// count := 0
 	ignore := map[string]bool{
-		"pkg.go":         true,
-		"go.mod":         true,
-		"LICENSE":        true,
-		"README.md":      true,
-		"gopkgrWin.go":   true,
-		"gopkgrLinux.go": true,
-		os.Args[0]:       true,
+		"log.txt":                                true,
+		"pkg.go":                                 true,
+		"go.mod":                                 true,
+		"go.sum":                                 true,
+		"LICENSE":                                true,
+		"README.md":                              true,
+		"CHANGELOG":                              true,
+		strings.ReplaceAll(os.Args[0], "./", ""): true,
 	}
+	Cprint(N, "Reading dir structure")
+	time.Sleep(1 * time.Second)
 	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
 		exe, _ := regexp.MatchString("^(.*\\.exe)$", info.Name())
-		if info.Mode().IsRegular() && !ignore[info.Name()] && !exe {
+		if info.Mode().IsRegular() && !ignore[info.Name()] && !exe && !strings.Contains(path, ".git") {
 			filebyt, err := ioutil.ReadFile(path)
-			if err != nil {
-				log.Println(err)
-			}
+			Try(err, false, "Reading file \""+path+"\"")
 			fmt.Println(path)
 			fmt.Fprintf(f, "\"%v\",", path)
 			replacer := strings.NewReplacer("[", "{", "]", "}", " ", ",")
@@ -60,11 +60,11 @@ func pkr() {
 		}
 		return nil
 	})
-	if err != nil {
-		log.Println(err)
-	}
+	Try(err, false)
 	fmt.Fprintln(f, "}")                //close pth
 	fmt.Fprintf(f, "file := [][]byte{") //open byt
+	Cprint(N, "Starting packing")
+	time.Sleep(1 * time.Second)
 	replacer := strings.NewReplacer("[", "", "]", "", " ", "")
 	for i, v := range bytstr {
 		var ss []string
@@ -80,9 +80,10 @@ func pkr() {
 	fmt.Fprintln(f, "}")                //close byt
 	fmt.Fprintln(f, "return pth, file") //return all paths
 	fmt.Fprintln(f, "}")                //end main
-	// fmt.Println("\nFiles Packed:", count)
 	fmt.Fprintln(f, u)
 	f.Close()
+	fmt.Printf("\n")
+	Cprint(N, "Packing complete")
 }
 
 var p string = `
