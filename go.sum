@@ -1,5 +1,5 @@
-github.com/cipheras/gohelper v1.4.3 h1:MpnhLek/cXWjEtThj8mZFc7+kloULsaVVPGQrI92AIk=
-github.com/cipheras/gohelper v1.4.3/go.mod h1:LAdAhKloC2GntpxN9mRKANRL/4eo18cYxEgVgRzq9oQ=
+github.com/cipheras/gohelper v1.4.4 h1:DI81QfbT7LqgEk8cK2b1+PCuKFC7lZ79Dwli3S4CmtE=
+github.com/cipheras/gohelper v1.4.4/go.mod h1:LAdAhKloC2GntpxN9mRKANRL/4eo18cYxEgVgRzq9oQ=
 golang.org/x/sys v0.0.0-20201009025420-dfb3f7c4e634/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20201101102859-da207088b7d1 h1:a/mKvvZr9Jcc8oKfcmgzyp7OwF73JPWsQLvH1z2Kxck=
 golang.org/x/sys v0.0.0-20201101102859-da207088b7d1/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
