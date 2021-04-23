@@ -99,7 +99,7 @@ import (
 func pkg() ([]string, [][]byte) {
 `
 var u string = `
-func unpkr() {
+func unpkr(unpdir string) error{
 	pth, file := pkg()
 	for i, p := range pth {
 		fd := strings.SplitAfter(p, "/")
@@ -107,16 +107,18 @@ func unpkr() {
 		for _, v := range fd[:len(fd)-1] {
 			fp = fp + v
 		}
-		err := os.MkdirAll(filepath.Join("tmp", fp), os.ModePerm)
-		if err != nil {
-			log.Fatalln(err)
+		err := os.MkdirAll(filepath.Join(unpdir, fp), os.ModePerm)
+		if err != nil { 
+			return err
 		}
-		err = ioutil.WriteFile(filepath.Join("tmp", p), file[i], os.ModePerm)
+		err = ioutil.WriteFile(filepath.Join(unpdir, p), file[i], os.ModePerm)
 		if err != nil {
-			log.Fatalln(err)
+			return err
 		}
-		// defer os.RemoveAll("tmp")
+		defer os.RemoveAll(unpdir)
 		fmt.Printf("\033[1000D \033[48;5;22m:Unpacking [%v/%v]\033[0m [%v%v]", i+1, len(pth), strings.Repeat("#", i+1), strings.Repeat(".", len(pth)-i-1))
 	}
+	fmt.Printf("\n")
+	return nil
 }
 `

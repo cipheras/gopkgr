@@ -16,7 +16,7 @@ Or you can either use a **precompiled binary** package for your architecture or 
 ### Download precompiled binary
 Windows | Linux
 --------|-------
-[win-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.3/gopkgr-win-x64.exe) | [linux-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.3/gopkgr-linux-x64)
+[win-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.4/gopkgr-win-x64.exe) | [linux-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.4/gopkgr-linux-x64)
 
 For other versions or releases go to [release page](https://github.com/cipheras/gopkgr/releases).
 
@@ -34,7 +34,10 @@ Running **gopkgr** will generate a **GO** file which will contain data from all 
 Put the *binary in the same dir* in which the files which are to be packed are located and execute it.
 <br>It will automatically pack all files and files that are in folders and subfolders too.
 
-Now you can use this file with your **GO** project and use **unpacker** function to unpack it at runtime.
+Now you can use this file with your **GO** project and use **unpacker** function to unpack it at runtime. Call function in your code like,
+```
+err := unpkr(dir)
+```
 <br>You can give path to where it should be extracted at the runtime. 
 <br>Finally build your project.
 
