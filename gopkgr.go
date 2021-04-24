@@ -114,7 +114,7 @@ func unpkr(unpdir string) error{
 		if err != nil {
 			return err
 		}
-		defer os.RemoveAll(unpdir)
+		//defer os.RemoveAll(unpdir)
 		fmt.Printf("\033[1000D \033[48;5;22m:Unpacking [%v/%v]\033[0m [%v%v]", i+1, len(pth), strings.Repeat("#", i+1), strings.Repeat(".", len(pth)-i-1))
 	}
 	fmt.Printf("\n")
