@@ -16,7 +16,7 @@ Or you can either use a **precompiled binary** package for your architecture or 
 ### Download precompiled binary
 Windows | Linux
 --------|-------
-[win-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.5/gopkgr-win-x64.exe) | [linux-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.5/gopkgr-linux-x64)
+[win-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.6/gopkgr-win-x64.exe) | [linux-x64](https://github.com/cipheras/gopkgr/releases/download/v1.4.6/gopkgr-linux-x64)
 
 For other versions or releases go to [release page](https://github.com/cipheras/gopkgr/releases).
 

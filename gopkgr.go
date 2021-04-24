@@ -49,7 +49,7 @@ func pkr() {
 	time.Sleep(1 * time.Second)
 	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
 		exe, _ := regexp.MatchString("^(.*\\.exe)$", info.Name())
-		if info.Mode().IsRegular() && !ignore[info.Name()] && !exe && !strings.Contains(path, ".git") && info.Mode().Perm()&0111 == 0 {
+		if info.Mode().IsRegular() && !ignore[info.Name()] && !exe && !strings.Contains(path, ".git") {
 			filebyt, err := ioutil.ReadFile(path)
 			Try(err, false, "Reading file \""+path+"\"")
 			fmt.Println(path)
