@@ -56,7 +56,6 @@ func pkr() {
 			fmt.Fprintf(f, "\"%v\",", path)
 			replacer := strings.NewReplacer("[", "{", "]", "}", " ", ",")
 			bytstr = append(bytstr, replacer.Replace(fmt.Sprint(filebyt)))
-			// count++
 		}
 		return nil
 	})
@@ -65,16 +64,17 @@ func pkr() {
 	fmt.Fprintf(f, "file := [][]byte{") //open byt
 	Cprint(N, "Starting packing")
 	time.Sleep(1 * time.Second)
-	replacer := strings.NewReplacer("[", "", "]", "", " ", "")
+	// replacer := strings.NewReplacer("[", "", "]", "", " ", "")
 	for i, v := range bytstr {
-		var ss []string
-		for i, c := range v {
-			if i%500 == 0 && i > 0 && string(c) != "," && string(c) != "0" && string(c) != "{" && string(c) != "}" {
-				ss = append(ss, "+ \n")
-			}
-			ss = append(ss, string(c))
-		}
-		fmt.Fprintf(f, "%v,", replacer.Replace(fmt.Sprint(ss)))
+		// var ss []string
+		// for i, c := range v {
+		// 	if i%1000 == 0 && i > 0 && string(c) != "," && string(c) != "0" && string(c) != "{" && string(c) != "}" {
+		// 		ss = append(ss, "+ \n")
+		// 	}
+		// 	ss = append(ss, string(c))
+		// }
+		// fmt.Fprintf(f, "%v,", replacer.Replace(fmt.Sprint(ss)))
+		fmt.Fprintf(f, "%v,", v)
 		fmt.Printf("\033[100D \033[48;5;22m:Packing [%v/%v]\033[0m [%v%v]", i+1, len(bytstr), strings.Repeat("#", i+1), strings.Repeat(".", len(bytstr)-i-1))
 	}
 	fmt.Fprintln(f, "}")                //close byt
@@ -114,7 +114,7 @@ func unpkr(unpdir string) error{
 		if err != nil {
 			return err
 		}
-		//defer os.RemoveAll(unpdir)
+		// defer os.RemoveAll(unpdir)
 		fmt.Printf("\033[1000D \033[48;5;22m:Unpacking [%v/%v]\033[0m [%v%v]", i+1, len(pth), strings.Repeat("#", i+1), strings.Repeat(".", len(pth)-i-1))
 	}
 	fmt.Printf("\n")
